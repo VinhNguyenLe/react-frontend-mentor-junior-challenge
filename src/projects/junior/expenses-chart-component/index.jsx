@@ -6,9 +6,6 @@ const ECC = () => {
     document.title = "Expenses Chart Component"
     const date = new Date()
     const day = date.getDay()
-    const maxValue = Math.max(...data.map((item) => item.amount))
-    console.log(day)
-    console.log(maxValue)
     return (
         <div className={styles.wrap}>
             <div className={styles.component}>
