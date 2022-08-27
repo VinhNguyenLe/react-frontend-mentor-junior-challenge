@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+@import "../../../index.scss";
+
+$softRed: #ec775f;
+$cyan: #76b5bc;
+$darkBrown: #382314;
+$mediumBrown: #93867b;
+$cream: #f8e9dd;
+$veryPaleOrange: #fffaf5;
+
+.wrap {
+    font-family: "DM Sans", sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8e9dd;
+    @include flexBox;
+}
+
+.component {
+    max-width: 540px;
+    width: 100%;
+    height: 200px;
+    @include flexBox(column);
+    gap: 20px;
+}
+
+.top {
+    width: 100%;
+    background-color: #ec775f;
+    padding: 24px;
+    border-radius: 14px;
+    @include flexBox($j: space-between);
+    color: #fffaf5;
+}
+
+.title {
+    & p {
+        margin-bottom: 10px;
+    }
+}
+
+.circle {
+    @include circle(40px, #382314);
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        @include circle(36px, transparent);
+        border: 2px solid #fffaf5;
+        transform: translateX(-50%);
+    }
+}
+
+.main {
+    width: 100%;
+    background-color: #fffaf5;
+    border-radius: 14px;
+    padding: 24px;
+
+    & h1,
+    & h2,
+    & h4 {
+        color: #382314;
+        line-height: 1;
+    }
+
+    & h2 {
+        font-weight: 700;
+        font-size: 30px;
+    }
+}
+
+.chartWrap {
+    margin-block: 60px 50px;
+}
+
+.chart {
+    @include flexBox($j: space-between, $a: flex-end);
+}
+
+.column {
+    width: 10%;
+    background-color: #ec775f;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    animation: growUp 1s ease;
+    transform-origin: bottom;
+
+    &:hover {
+        background-color: #ff9b87;
+
+        & h4 {
+            display: block;
+        }
+    }
+
+    &.active {
+        background-color: #76b5bc;
+
+        &:hover {
+            background-color: #b4e0e3;
+        }
+    }
+
+    & p {
+        bottom: -26px;
+        text-align: center;
+        @include centerAbs;
+        color: #93867b;
+        animation: opacityDisplay 1s ease;
+    }
+
+    & h4 {
+        display: none;
+        animation: opacityAndScale 0.5s ease;
+        @include centerAbs;
+        top: -40px;
+        background-color: #382314;
+        color: #fffaf5;
+        padding: 6px 10px;
+        border-radius: 4px;
+    }
+}
+
+.line {
+    height: 1px;
+    background-color: #c2bdb6;
+    margin-block: 30px;
+}
+
+.result {
+    @include flexBox($j: space-between, $a: flex-end);
+    margin-bottom: 12px;
+
+    & p {
+        color: #93867b;
+    }
+
+    &:last-child {
+        text-align: right;
+    }
+}
+
+.resultItem {
+    @include flexBox($f: column, $a: unset);
+    gap: 4px;
+}
+
+@keyframes opacityAndScale {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

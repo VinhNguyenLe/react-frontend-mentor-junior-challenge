@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@mixin flexBox($f: row, $j: center, $a: center) {
+    display: flex;
+    flex-direction: $f;
+    justify-content: $j;
+    align-items: $a;
+}
+
+@mixin circle($w, $bg, $b: none) {
+    border-radius: 50%;
+    width: $w;
+    height: $w;
+    background-color: $bg;
+}
+
+@mixin centerAbs {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes growUp {
+    from {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+
+    to {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes opacityDisplay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
